@@ -1,64 +1,40 @@
-var $text = document.getElementById("notEncodedText");
+var $text = document.getElementById("unencoded-text");
 var $result = document.getElementById("result");
-var $keyInput = document.getElementById("keyInput");
-var $buttonEnc = document.getElementById("buttonEnc");
+var $keyInput = document.getElementById("key-input");
+var $buttonEnc = document.getElementById("button-enc");
 
-var aplhabet = "abcdefghijklmnopqrstuvwxyz";
+var alphabet = "abcdefghijklmnopqrstuvwxyz";
 var encoded = "";
+
 // button click
-
-function findIndexInAlphabeth(letter) {
-	for (var i = 0; i < aplhabet.length; i++) {
-		if (aplhabet[i]	===  letter) {
-			return i;
-		}
-	}
-}
-
-
-function calculateOffset(index) {
-	return ((index + 1) * $keyInput.value) % aplhabet.length
-}
-
-
-
-
-
 $buttonEnc.addEventListener("click", function(){
 	$result.textContent = ""
 
-
 	// to encode text value
 	var text = $text.value;
-	
-
 
 	for (var i = 0; i < text.length; i++) {
 
-		var alphabetIndex = findIndexInAlphabeth(text[i]);
-
-		console.log(alphabetIndex);
+		var alphabetIndex = findIndexInAlphabet(text[i]);
 		var offset = calculateOffset(alphabetIndex);
-		var indexOfEncodedLetter = (offset + alphabetIndex) % 26;
 
-		// console.log(indexOfEncodedLetter)
-		// console.log(aplhabet[indexOfEncodedLetter])
+		var indexOfEncodedLetter = (offset + alphabetIndex) % alphabet.length; // find index of encoded letter
 
-		encoded += aplhabet[indexOfEncodedLetter];
+		encoded += alphabet[indexOfEncodedLetter]; // add encoded letter in result text
 
 	}
 
-
-
-
-
-	// result out on screen 
+	// result out on screen
 	var textNode = document.createTextNode(encoded);
 	$result.appendChild(textNode);
-
-
 });
 
+// find index of letter in eng alphabet
+function findIndexInAlphabet(letter) {
+	return alphabet.indexOf(letter);
+}
 
-
-
+// calculate offset of letters
+function calculateOffset(index) {
+	return ((index + 1) * $keyInput.value) % alphabet.length;
+}
