@@ -6,6 +6,8 @@ var $buttonEnc = document.getElementById("button-enc");
 var alphabet = "abcdefghijklmnopqrstuvwxyz";
 var encoded = "";
 
+console.log("working")
+
 // button click
 $buttonEnc.addEventListener("click", function(){
 	$result.textContent = ""
