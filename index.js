@@ -64,7 +64,7 @@ $buttonEnc.addEventListener("click", function(){
 
 
 
-console.log("branch test")
+console.log("branch test 1")
 
 
 
