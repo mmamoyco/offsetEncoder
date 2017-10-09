@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Encoder</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 
 	<div>
-		<input id="notEncodedText" type="name" name="" placeholder="Enter text">
-		<input id="keyInput" type="name" name="" placeholder="Enter encode key">
-		
-		<button id="buttonEnc">Encrypt</button>
-		<button id="buttonDec">Decrypt</button>
+		<input id="key-input" type="name" name="" placeholder="Enter encode key">
 
-		<div id="result"> </div>
+		<div class="source-text-container">
+			<input id="not-encoded-text" type="name" name="" placeholder="Enter source text">
+			<input id="encoded-text" type="name" name="" placeholder="Enter encoded text">
+		</div>
 
+		<div class="button-container">
+			<button id="button-enc">Encrypt</button>
+			<button id="button-dec">Decrypt</button>
+		</div>
 
+		<div id="result">Result will be here...</div>
 	</div>
 
 <script type="text/javascript" src="index.js"></script>

@@ -1,121 +1,44 @@
-var $text = document.getElementById("notEncodedText");
+var $notEncodedText = document.getElementById("not-encoded-text");
+var $encodedText = document.getElementById("encoded-text");
 var $result = document.getElementById("result");
-var $keyInput = document.getElementById("keyInput");
-var $buttonEnc = document.getElementById("buttonEnc");
-var $buttonDec = document.getElementById("buttonDec");
+var $keyInput = document.getElementById("key-input");
+var $buttonEnc = document.getElementById("button-enc");
+var $buttonDec = document.getElementById("button-dec");
+var $buttonContainer = document.getElementsByClassName("button-container")[0];
 
 var aplhabet = "abcdefghijklmnopqrstuvwxyz";
-var encoded = "";
-// button click
-
-// function findIndexInAlphabeth(letter) {
-// 	for (var i = 0; i < aplhabet.length; i++) {
-// 		if (aplhabet[i]	===  letter) {
-// 			return i;
-// 		}
-// 	}
-// }
-
-
-// var encodeTable = {
-// 	"a": "a",
-// 	"b": "a",
-// 	"c": "a",
-// 	"d": "a",
-// 	"e": "a",
-// 	"f": "a",
-// 	"g": "a",
-// 	"h": "a",
-// 	"i": "a",
-// 	"j": "a",
-// 	"k": "a",
-// 	"l": "a",
-// 	"m": "a",
-// 	"n": "a",
-// 	"o": "a",
-// 	"p": "a",
-// 	"q": "a",
-// 	"r": "a",
-// 	"s": "a",
-// 	"t": "a",
-// 	"u": "a",
-// 	"v": "a",
-// 	"w": "a",
-// 	"y": "a",
-// 	"z": "a"
-// }
-
-
-var i = 0;
 
 function mapIndex(index, key) {
 	return ((index + 1) * key -1 ) % aplhabet.length;
 }
 
+// TODO: Checking relatibely prime numbers
 
-// TODO comibne to one listener
+$buttonContainer.addEventListener("click", function(e) {
+	var table;
 
-$buttonEnc.addEventListener("click", function(){
-	
-	var table = createEncodeTableFromKey($keyInput.value);
-
-	$result.textContent = encode(table, $text.value);
+	if (e.target === $buttonEnc) {
+		table = createEncodeTableFromKey($keyInput.value);
+		$result.textContent = "Encoded text: " + encode(table, $notEncodedText.value);
+	} else if (e.target === $buttonDec) {
+		table = createDecodeTableFromKey($keyInput.value);
+		$result.textContent = "Source text: " + encode(table, $encodedText.value);
+	}
 });
-
-$buttonDec.addEventListener("click", function(){
-	
-	// if ()
-	// TODO implement key validation
-	var table = createEncodeTableFromKey($keyInput.value);
-	
-
-	$result.textContent = decode(table, $text.value);
-});
-
 
 
 function encode(encodeTable, text) {
-
-	var resulr = "";
+	var result = "";
 
 	for (var i = 0; i < text.length; i++) {
-		resulr += encodeTable[text[i]];
+		result += encodeTable[text[i]];
 	}
 
-	return resulr;
+	return result;
 }
-
-function decode(encodeTable, text) {
-	
-		var resulr = "";
-
-		// TODO finish decoder
-		for (var i = 0; i < text.length; i++) {
-			resulr += 
-		}
-	
-		return resulr;
-	}
-
-
-$buttonDec.addEventListener("click", function(){
-
-
-
-	
-
-
-// 	// if mapped letter is in alphabeth -> 
-// 	//decode
-
-
-
-// 	// if not ->
-// 	// create new aplhabeth from key
 
 
 function createEncodeTableFromKey(key) {
-
 	var table = {};
 
 	for (var i = 0; i < aplhabet.length; i++) {
@@ -123,39 +46,15 @@ function createEncodeTableFromKey(key) {
 	}
 
 	return table;
-
 }
 
-// $buttonEnc.addEventListener("click", function(){
-// 	$result.textContent = ""
 
+function createDecodeTableFromKey(key) {
+	var table = {};
 
-// 	// to encode text value
-// 	var text = $text.value;
+	for (var i = 0; i < aplhabet.length; i++) {
+		table[aplhabet[mapIndex(i, key)]] = aplhabet[i];
+	}
 
-// 	for (var i = 0; i < text.length; i++) {
-
-// 		var alphabetIndex = findIndexInAlphabeth(text[i]);
-// 		var newAlphabethIndex = (alphabetIndex * $keyInput.value) % 26;
-// 		console.log(newAlphabethIndex);
-// 		encoded += aplhabet[newAlphabethIndex];
-
-// 	}
-
-
-// 	// result out on screen 
-// 	var textNode = document.createTextNode(encoded);
-// 	$result.appendChild(textNode);
-
-
-// });
-
-
-
-
-
-
-// console.log("branch test 1")
-
-
-
+	return table;
+}

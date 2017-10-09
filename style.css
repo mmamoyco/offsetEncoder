@@ -1,0 +1,18 @@
+.source-text-container {
+  width: 345px;
+  margin-top: 10px;
+}
+
+#key-input {
+  margin-left: 90px;
+}
+
+.button-container {
+  margin-left: 77px;
+  margin-top: 10px;
+}
+
+#result {
+  margin-left: 110px;
+  margin-top: 10px;
+}
