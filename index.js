@@ -8,7 +8,7 @@ var $buttonContainer = document.getElementsByClassName("button-container")[0];
 
 var alphabet = "abcdefghijklmnopqrstuvwxyz";
 
-$keyInput.value = 3;
+// т$keyInput.value = 3;
 
 // $encodedText.value = "HWEEQWE";
 
@@ -31,7 +31,9 @@ $buttonContainer.addEventListener("click", function(e) {
 			table = createEncodeTableFromKey($keyInput.value);
 			$encodedText.value = encode(table, $notEncodedText.value);
 		} else {
-			$errorMessage.textContent = "Error in " + check + " char";
+			toastr.error("Error in " + check + " char");
+			// $errorMessage.textContent = "Error in " + check + " char";
+			// TODO refactoring of duplication + use toast.error(text) to display error message
 		}
 	} else if (e.target === $buttonDec) {
 		$errorMessage.textContent = "";
@@ -43,7 +45,8 @@ $buttonContainer.addEventListener("click", function(e) {
 			table = createDecodeTableFromKey($keyInput.value);
 			$notEncodedText.value = encode(table, $encodedText.value);
 		} else {
-			$errorMessage.textContent = "Error in " + check + " char";
+			toastr.error("Error in " + check + " char");
+			// $errorMessage.textContent = "Error in " + check + " char";
 		}
 	}
 });

@@ -1,0 +1,116 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: -webkit-fill-available;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  background-image: url("../res/img/bg.jpg");
+  background-size: cover;
+  overflow: auto;
+}
+
+input, button {
+  outline: none;
+  border: none;
+}
+
+
+button {
+  /*position: relative;*/
+ width: 100%;
+ padding: 10px 40px 10px 40px;
+ color: rgba(255, 255, 255, 0.8);
+ background: transparent;
+ border: solid 2px rgba(35, 203, 156, 0.4);
+ font-size: 1.5rem;
+ border-radius: 2rem;
+ cursor: pointer;
+ overflow: hidden;
+ -webkit-transition: width 0.3s 0.15s, font-size 0.1s 0.15s;
+ transition: width 0.3s 0.15s, font-size 0.1s 0.15s;
+}
+
+button:hover {
+  background: rgba(35, 203, 156, 1);
+}
+
+input {
+  border: solid 1px rgba(35, 203, 156, 0.8);
+  display: inline-block;
+  width: 22rem;
+  height: 100%;
+  padding: 1rem 1.5rem 1rem 1.5rem;
+  font-size: 1.5rem;
+  background: transparent;
+  color: #FDFCFD;
+}
+
+input::-webkit-input-placeholder {
+  color: white;
+  opacity: 0.7;
+  text-align: center;
+
+}
+
+
+.app-title {
+  color: white;
+  font-size: 4em;
+  padding: 0 0.5em 0.25em 0.5em;
+  font-weight: 200;
+  /*font-family: "Pacifico", cursive;*/
+
+
+  margin-bottom: 64px;
+}
+
+
+.app-container {
+  position: relative;
+  height: 100%;
+
+  padding: 5rem;
+
+  /*background: -webkit-linear-gradient(top, rgba(146, 135, 187, 0./8) 0%, rgba(0, 0, 0, 0.6) 100%);*/
+  background: linear-gradient(to bottom, rgba(35,35,35, 0.8) 0%, rgba(35,35,35, 0.6) 100%);
+
+  -webkit-transition: opacity 0.1s, -webkit-transform 0.3s cubic-bezier(0.17, -0.65, 0.665, 1.25);
+
+  transition: opacity 0.1s, -webkit-transform 0.3s cubic-bezier(0.17, -0.65, 0.665, 1.25);
+  transition: opacity 0.1s, transform 0.3s cubic-bezier(0.17, -0.65, 0.665, 1.25);
+  transition: opacity 0.1s, transform 0.3s cubic-bezier(0.17, -0.65, 0.665, 1.25), -webkit-transform 0.3s cubic-bezier(0.17, -0.65, 0.665, 1.25);
+
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* key input container */
+.app-container .key-in-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+/* encode/deconde input container */
+.app-container .source-text-container {
+  display: flex;
+}
+
+.app-container .source-text-container >input {
+  margin: 5px 10px 5px 10px;
+}
+
+
+/* Button container styles */
+.app-container > .button-container {
+  display: flex;
+  margin-top: 64px;
+}
+
+.app-container > .button-container > button {
+  margin: 5px 10px 5px 10px;
+}
