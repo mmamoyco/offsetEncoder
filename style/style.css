@@ -92,7 +92,7 @@ input::-webkit-input-placeholder {
 .app-container .key-in-container {
   display: flex;
   justify-content: center;
-  margin-bottom: 32px;
+  margin-bottom: 60px;
 }
 
 /* encode/deconde input container */
